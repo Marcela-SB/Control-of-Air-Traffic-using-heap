@@ -1,23 +1,26 @@
-#ifndef AERONAVE_H
-#define AERONAVE_H
+    #ifndef AERONAVE_H
+    #define AERONAVE_H
 
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include <stdbool.h>
+        #include <stdio.h>
+        #include <stdlib.h>
+        #include <stdbool.h>
 
-    typedef struct aeronave Aero;
+        typedef struct aeronave Aero;
 
-    struct aeronave
-    {
-        char identificador[6];
-        double combustivel;
-        int horario;
-        bool operacao;
-        bool emergencia;
-        int prioridade;
-    };
+        struct aeronave
+        {
+            char identificador[6];
+            float combustivel;
+            int horario;
+            int operacao;
+            int emergencia;
+            int prioridade;
+        };
 
-    int calcular_prioridade(Aero a);
+        int calcular_prioridade(Aero a);
 
-    Aero criar_aeronave(char id, int comb, int h, bool op, bool e, int p);
-#endif
+        Aero criar_aeronave(const char id[6], float c, int h, int o, int e);
+        Aero criar_aeronave_manualmente();
+        
+        void exibir_aeronaves(Aero *v);
+    #endif
