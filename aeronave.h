@@ -10,7 +10,7 @@
         struct aeronave
         {
             char identificador[6];
-            float combustivel;
+            int combustivel;
             int horario;
             int operacao;
             int emergencia;
@@ -19,7 +19,7 @@
 
         int calcular_prioridade(Aero a);
 
-        Aero criar_aeronave(const char id[6], float c, int h, int o, int e);
+        Aero criar_aeronave(const char id[6], int c, int h, int o, int e);
         Aero criar_aeronave_manualmente();
         
         void exibir_aeronaves(Aero *v);

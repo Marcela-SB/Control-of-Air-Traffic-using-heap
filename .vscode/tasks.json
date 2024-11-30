@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Compilar C",
+        "type": "shell",
+        "command": "gcc",
+        "args": [
+          "-std=c99",         // Define o padrão C99
+          "-g",               // Para depuração (opcional)
+          "${file}",          // Arquivo atual
+          "-o",               // Nome do executável
+          "${fileDirname}/${fileBasenameNoExtension}"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$gcc"],
+        "detail": "Compilação de C usando GCC com o padrão C99"
+      }
+    ]
+  }
+  

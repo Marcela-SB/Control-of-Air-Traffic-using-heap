@@ -9,7 +9,7 @@ int calcular_prioridade(Aero a) {
     return prioridade;
 }
 
-Aero criar_aeronave(const char id[6], float c, int h, int o, int e){
+Aero criar_aeronave(const char id[6], int c, int h, int o, int e){
     Aero a;
 
     strncpy(a.identificador, id, sizeof(a.identificador) - 1);
@@ -25,10 +25,9 @@ Aero criar_aeronave(const char id[6], float c, int h, int o, int e){
     return a;
 }
 
-Aero criar_aeronave_manualmente(){
+Aero criar_aeronave_manualmente() {
     char id[6];
-    float c;
-    int h, o, e;
+    int c, h, o, e;
 
     printf("\n\nCriando Aeronave...");
     printf("\nQual o identificador? (ate 5 digitos) ");
@@ -36,7 +35,7 @@ Aero criar_aeronave_manualmente(){
     id[strcspn(id, "\n")] = 0;
     
     printf("Quanto combustivel (em litros) resta? ");
-    scanf("%f", &c);
+    scanf("%d", &c);
     
     printf("Qual o horario previsto de chegada ou partida (em minutos do dia)? ");
     scanf("%d", &h);
@@ -44,7 +43,7 @@ Aero criar_aeronave_manualmente(){
     printf("Qual operacao sera realizada? (0 para decolagem, 1 para pouso) ");
     scanf("%d", &o);
     
-    printf("Está em situacao de emergencia? (1-Sim / 0-Nao) ");
+    printf("Esta em situacao de emergencia? (1-Sim / 0-Nao) ");
     scanf("%d", &e);
     
     return criar_aeronave(id, c, h, o, e);
@@ -53,10 +52,15 @@ Aero criar_aeronave_manualmente(){
 
 
 void exibir_aeronaves(Aero *v) {
-    printf("\n\nAeronaves por ordem de prioridade:");
-    int i;
-    for (i = 0; i < tamanho; i++) {
-        printf("\nID: %s, Prioridade: %d", v[i].identificador, v[i].prioridade);
+    if (tamanho > 0) {
+        printf("\nAeronaves por ordem de prioridade:");
+        int i;
+        for (i = 0; i < tamanho; i++) {
+            printf("\nID: %s, Prioridade: %d", v[i].identificador, v[i].prioridade);
+        }
+        printf("\n");
     }
-    printf("\n");
+    else{
+        printf("\nNao ha aeronaves cadastradas!");
+    }
 }

@@ -5,11 +5,14 @@
 
 void trocar(Aero* v, int i, int j);
 
-void heapify(Aero *v, int n, int i);
+void heapify(Aero *v, int t, int i);
 
-void organizar_maxHeap(Aero *v, int n);
+void organizar_maxHeap(Aero *v, int t);
+
+void heapsort(Aero *v, int t);
         
-    
-    Aero* adicionar_aeronave(Aero **v);
-
+    int validar_id(Aero *v, char id[]);
+    void inserir_aeronave(Aero **v, Aero a);
+    void remover_maior_prioridade(Aero **v);
+    void atualizar_prioridade(Aero **v, char id[]);
 #endif
